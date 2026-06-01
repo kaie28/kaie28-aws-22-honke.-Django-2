@@ -20,7 +20,7 @@ class TodoCreate(CreateView):
     fields = ('title','memo','priority','duedate')
     success_url = reverse_lazy('list')
 
-    # ↓ これがあることで、カレンダーが正しく機能します
+    # ↓ これがあることで、カレンダーが正しく機能する。
     def get_form(self):
         form = super().get_form()
         form.fields['duedate'].widget = forms.DateInput(attrs={'type': 'date'})
@@ -33,7 +33,7 @@ class TodoUpdate(UpdateView):
     fields = ('title','memo','priority','duedate')
     success_url = reverse_lazy('list')
 
-   # ↓ TodoCreateにあるこれと同じものを、UpdateViewにも追加してあげてください
+   # ↓ TodoCreateにあるこれと同じものを、UpdateViewにも追加する。
     def get_form(self):
         form = super().get_form()
         form.fields['duedate'].widget = forms.DateInput(attrs={'type': 'date'})
